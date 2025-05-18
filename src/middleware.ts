@@ -8,13 +8,15 @@ export async function middleware(request: NextRequest) {
   const isProtectedPath = path === "/" || path === "/profile";
 
   if (isPublicPath && token) {
+    
     return NextResponse.redirect(new URL("/", request.nextUrl));
   }
 
   if (!isPublicPath && !token) {
+    
     return NextResponse.redirect(new URL("/login", request.nextUrl));
   }
-  
+
 }
 
 export const config = {
