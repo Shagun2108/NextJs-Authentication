@@ -16,6 +16,7 @@ export default function Login() {
 
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
 
   useEffect(()=>{
@@ -44,6 +45,11 @@ try{
 
   };
 
+  const changecolor = () => { 
+
+  }
+
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1> {loading? "processing": "Login"}</h1>
@@ -71,9 +77,13 @@ try{
 
     <button
     onClick={onLogin}
-      className="bg-blue-500 text-white rounded-md p-2 mb-4"> {buttonDisabled? "fill credential":"Login"}</button>
-
-      <Link href="/signup">if didnt have an account</Link>
+      className="bg-blue-500 text-white rounded-md p-2 mb-4"> {buttonDisabled? "fill credential":"Login"}
+      </button>
+      <p> <span className="hover:text-blue-500 transition-colors duration-200">
+        <Link className="hover:underline" href="/signup">if didnt have an account</Link> ?  <Link className="hover:underline" href="/forgotpassword">forgot password</Link>
+        </span></p>
+      
+      
     </div>
   );
 }
